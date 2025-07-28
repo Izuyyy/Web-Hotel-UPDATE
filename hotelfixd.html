@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel VIDA VIEW - Full Animasi</title>
+  <style>
+    form input, form select {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+form button {
+  background-color: #ff8800;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+    body.dark {
+  background: #111;
+  color: #eee;
+}
+body.dark header, body.dark .card, body.dark footer {
+  background: #222;
+  color: #eee;
+}
+body.dark nav a {
+  color: #ddd;
+}
+body.dark nav a.active, body.dark nav a:hover {
+  color: #ff8800;
+  border-color: #ff8800;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover glowing card */
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 0 10px #ff8800aa;
+  transform: scale(1.05);
+}
+
+/* Tombol animasi (jika ada form nanti) */
+button {
+  transition: background-color 0.3s, transform 0.3s;
+}
+button:hover {
+  background-color: #e07000;
+  transform: scale(1.05);
+}
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f4f6f9, #e6ecf5);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      background: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+      animation: floatLogo 3s ease-in-out infinite;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #ff8800;
+      border-bottom: 2px solid #ff8800;
+    }
+
+    .hero {
+      background: url('kamar tidur.jpg') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      animation: fadeIn 2s ease;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      animation: slideInDown 1s ease-out;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: slideInUp 1s ease-out;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ff8800;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      animation: fadeUp 1s ease both;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card .content {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .card .content h3 {
+      margin-bottom: 0.5rem;
+      color: #ff8800;
+    }
+
+    footer {
+      text-align: center;
+      background: #222;
+      color: white;
+      padding: 1rem;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logofix.png" alt="Logo VIDA VIEW" />
+    <nav>
+      <ul>
+        <li><a href="#beranda" class="active">Beranda</a></li>
+        <li><a href="#kamar">Kamar</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="beranda" class="hero">
+    <h1>Selamat Datang di VIDA VIEW</h1>
+    <p>Hotel dengan pemandangan terbaik di Makassar</p>
+  </section>
+
+  <section id="kamar" class="section">
+    <h2>Kamar Kami</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="kamar tidur.jpg" alt="Deluxe Room">
+        <div class="content">
+          <h3>Deluxe Room</h3>
+          <p>Kamar luas dengan view kota, cocok untuk pasangan.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="suiteroom.jpg" alt="Suite Room">
+        <div class="content">
+          <h3>Suite Room</h3>
+          <p>Kenyamanan premium dengan fasilitas lengkap.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="standarroom.png" alt="Standard Room">
+        <div class="content">
+          <h3>Standard Room</h3>
+          <p>Nyaman dan terjangkau untuk semua tamu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="galeri" class="section">
+  <h2>Galeri Hotel</h2>
+  <div class="cards">
+    <div class="card"><img src="lobby.png" alt="Lobby"><div class="content"><h3>Lobby</h3></div></div>
+    <div class="card"><img src="Restoran.png" alt="Restoran"><div class="content"><h3>Restoran</h3></div></div>
+    <div class="card"><img src="kolang renang.png" alt="Kolam Renang"><div class="content"><h3>Kolam Renang</h3></div></div>
+  </div>
+</section>
+
+<section id="pemesanan" class="section">
+  <h2>Form Pemesanan</h2>
+  <form id="formPemesanan" action="#" method="POST" style="max-width:600px; margin:auto; text-align:left;">
+    <label>Nama:</label><input type="text" name="nama" required><br>
+    <label>Email:</label><input type="email" name="email" required><br>
+    <label>Check-In:</label><input type="date" name="checkin" required><br>
+    <label>Check-Out:</label><input type="date" name="checkout" required><br>
+    <label>Tipe Kamar:</label>
+    <select name="tipe_kamar" required>
+      <option value="">--Pilih--</option>
+      <option value="standard">Standard</option>
+      <option value="deluxe">Deluxe</option>
+      <option value="suite">Suite</option>
+    </select><br>
+    <button type="submit">Pesan Sekarang</button>
+  </form>
+</section>
+
+  <section id="kontak" class="section">
+    <h2>Kontak Kami</h2>
+    <p>📞 085222736431 | ✉ info@vidaviewhotel.com</p>
+  </section>
+
+  <footer>
+    &copy; 2025 VIDA VIEW Hotel. All rights reserved.
+  </footer>
+
+  <script>
+   document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+});
+  </script>
+<script>
+  // Highlight menu aktif
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // Reveal on scroll animation
+  const revealElements = document.querySelectorAll('.section, .card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  revealElements.forEach(el => {
+    el.classList.add('hidden');
+    observer.observe(el);
+  });
+</script>
+
+<button id="darkToggle" style="position:fixed;bottom:20px;right:20px;z-index:999;">🌓 Mode</button>
+<script>
+  document.getElementById("darkToggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("formPemesanan");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Mencegah reload halaman
+
+      // Ambil nilai input
+      const nama = form.elements["nama"].value;
+      const email = form.elements["email"].value;
+      const checkin = form.elements["checkin"].value;
+      const checkout = form.elements["checkout"].value;
+      const tipe = form.elements["tipe_kamar"].value;
+
+      // Tampilkan notifikasi
+      alert(
+        `✅ Terima kasih, ${nama}!\n\n📧 Konfirmasi akan dikirim ke: ${email}\n🛏 Kamar: ${tipe}\n📅 Tanggal: ${checkin} s/d ${checkout}`
+      );
+
+      // Reset form
+      form.reset();
+    });
+  });
+</script>
+
+</body>
+</html>
